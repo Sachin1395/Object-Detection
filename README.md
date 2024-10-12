@@ -10,44 +10,12 @@ Real-time Object Detection: Utilizes the YOLOv4 model for fast and accurate dete
 Web-based Interface: Built with Flask, allowing users to easily upload and process files from their browser.
 Video and Image Support: The application can process both video files (e.g., MP4, AVI) and static images (e.g., JPG, PNG).
 Download Processed Output: Users can download the processed video or image with detected objects.
-Requirements
+
+# Requirements
 Python 3.x
 Flask
 OpenCV
 NumPy
-Installation
-Clone the repository:
-
-# bash
-Copy code
-git clone https://github.com/Sachin1395/Object-Detection.git
-cd <repository-directory>
-Install the required packages:
-
-# bash
-Copy code
-pip install -r requirements.txt
-Download the YOLOv4 weights and configuration files:
-
-# YOLOv4 weights
-YOLOv4 config file
-COCO names file
-Place these files in the same directory as the project.
-
-Create the uploads directory to store uploaded videos/images:
-
-bash
-Copy code
-mkdir uploads
-Usage
-Run the Flask application:
-
-bash
-Copy code
-python app.py
-Open a web browser and navigate to http://127.0.0.1:5000/ to access the upload interface.
-
-Upload your video or image file. The processed output will be available for download after processing.
 
 # Code Structure
 app.py: The main Flask application handling the upload and processing of videos/images.
