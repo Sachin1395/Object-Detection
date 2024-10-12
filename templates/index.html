@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Upload</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+        /* Base styling */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-image: url('static/img/indexbg.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #202124;
+        }
+
+        .upload-section {
+            background: #3C4042;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 90%;
+            max-width: 500px;
+        }
+
+        .upload-section h1 {
+            margin-bottom: 20px;
+            font-weight: 600;
+            color: #BDC1C6;
+            font-size: 1.8rem;
+        }
+
+        .upload-section input[type="file"] {
+            margin-bottom: 20px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #EA80FC;
+            border-radius: 5px;
+            color: white;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .upload-section button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #c248d8;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+
+        .upload-section button:hover {
+            background-color: #a214bb;
+        }
+
+        /* Simple styles for the loading spinner */
+        .loading-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .spinner {
+            border: 8px solid #f3f3f3;
+            border-top: 8px solid #c248d8;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 2s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Media queries for responsiveness */
+        @media screen and (max-width: 768px) {
+            .upload-section {
+                padding: 20px;
+                width: 90%;
+            }
+
+            .upload-section h1 {
+                font-size: 1.5rem;
+            }
+
+            .upload-section input[type="file"],
+            .upload-section button {
+                font-size: 14px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .upload-section h1 {
+                font-size: 1.2rem;
+            }
+
+            .upload-section input[type="file"],
+            .upload-section button {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="upload-section">
+        <h1>Upload a Video for Object Detection</h1>
+        <form action="/upload" method="POST" enctype="multipart/form-data" onsubmit="showLoading()">
+            <input type="file" name="file" accept="video/*" required><br>
+            <button class="button" type="submit">Upload and Process Video</button>
+        </form>
+    </div>
+
+    <!-- Loading spinner section -->
+    <div class="loading-overlay" id="loading-overlay">
+        <div class="spinner"></div>
+    </div>
+
+    <script>
+        function showLoading() {
+            // Display the loading spinner when the form is submitted
+            document.getElementById('loading-overlay').style.display = 'flex';
+        }
+    </script>
+</body>
+</html>

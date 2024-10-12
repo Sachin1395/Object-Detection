@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Video</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+        /* Base styling */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-image: url('static/img/indexbg.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #202124;
+        }
+
+        .download-section {
+            background: #3C4042;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 90%;
+            max-width: 500px;
+        }
+
+        .download-section h1 {
+            margin-bottom: 20px;
+            font-weight: 600;
+            color: #BDC1C6;
+            font-size: 1.8rem;
+        }
+
+        .download-section button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #c248d8;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+
+        .download-section button:hover {
+            background-color: #a214bb;
+        }
+
+        /* Media queries for responsiveness */
+        @media screen and (max-width: 768px) {
+            .download-section {
+                padding: 20px;
+                width: 90%;
+            }
+
+            .download-section h1 {
+                font-size: 1.5rem;
+            }
+
+            .download-section button {
+                font-size: 14px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .download-section h1 {
+                font-size: 1.2rem;
+            }
+
+            .download-section button {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="download-section">
+        <h1>Download Processed Video</h1>
+        <a href="{{ url_for('download_video') }}">
+            <button>Download</button>
+        </a>
+    </div>
+</body>
+</html>
